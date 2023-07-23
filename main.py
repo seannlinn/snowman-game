@@ -9,17 +9,17 @@ pygame.display.set_caption("Snowman Game")
 ICE_BG = (153, 204, 255)
 FPS = 60
 VEL = 8
-SNOWMAN_WIDTH, SNOWMAN_HEIGHT = 80/1.5, 95/1.5
+SNOWMAN_WIDTH, SNOWMAN_HEIGHT = 240/3, 240/3
 
 FONT = pygame.font.SysFont('comicsans', 30)
 
 HIT = pygame.USEREVENT + 1
 
 SNOWMAN_IMAGE = pygame.image.load(os.path.join("assets", "snowman_s.png"))
-SNOWMAN_IMAGE_SCALED = pygame.transform.scale(SNOWMAN_IMAGE, (80, 95))
-FIREBALL_WIDTH, FIREBALL_HEIGHT = 20, 20
+SNOWMAN_IMAGE_SCALED = pygame.transform.scale(SNOWMAN_IMAGE, (240/3, 240/3))
+FIREBALL_WIDTH, FIREBALL_HEIGHT = 224/3, 128/3
 FIREBALL_IMAGE = pygame.image.load(os.path.join("assets", "fireball.png"))
-FIREBALL_IMAGE_SCALED_LEFT = pygame.transform.scale(FIREBALL_IMAGE, (60, 60))
+FIREBALL_IMAGE_SCALED_LEFT = pygame.transform.scale(FIREBALL_IMAGE, (224/3, 128/3))
 FIREBALL_IMAGE_SCALED_RIGHT = pygame.transform.rotate(FIREBALL_IMAGE_SCALED_LEFT, 180)
 FIREBALL_IMAGE_SCALED_UP = pygame.transform.rotate(FIREBALL_IMAGE_SCALED_LEFT, 270)
 FIREBALL_IMAGE_SCALED_DOWN = pygame.transform.rotate(FIREBALL_IMAGE_SCALED_LEFT, 90)
@@ -109,7 +109,7 @@ def main():
 			if event.type == pygame.QUIT:
 				run = False
 			if event.type == HIT:
-				loss_text = "YOU LOSE"
+				loss_text = "GAME OVER"
 			if loss_text != "":
 				draw_endscreen(loss_text)
 				pygame.quit()
